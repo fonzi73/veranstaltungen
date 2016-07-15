@@ -1,0 +1,141 @@
+/* css released under Creative Commons License -  http://creativecommons.org/licenses/by/2.0/deed.en  */
+/* html5 + CSS 3 Template created by miss monorom  http://intensivstation.ch 2013 */
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* render html5 elements as block 
+   rendert html5 elemente als block  */
+
+header, footer, section, aside, nav, article { display: block;}
+
+body {
+    background-color: #ccc;
+    font-size: 0.95em;
+    font-family: Arial, SunSans-Regular, Sans-Serif;
+    color:#564b47;
+}
+pre, code {
+    font-size: 1.3em;
+}
+a {color: #DB7093;}
+a:visited {color:#DB7093;}
+a:hover {color: #564b47;}
+a:active { color:#000000;}
+
+h1, h2 {
+    font-size:1.8em;
+    font-weight: normal;
+    margin: 0 0 20px;
+}
+
+img.download {vertical-align:middle;}
+img{border:none;}
+
+
+/* ----------container zentriert das layout-------------- */
+
+#container {
+    max-width: 1200px;
+    min-width:960px;
+    margin:10px  auto;
+    background-color: #f67;
+}
+
+/* ----------header for logo-------------- */
+header {
+    position: relative;
+    height: 300px;
+    background:#fff ;
+    background-image: url(../Bilder/skylineBerlin.png);
+    background-size: 100%;
+}
+
+
+#text {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    font-size: 1.5em;
+    padding: 10px;
+    padding-right: 30px;
+    
+}
+
+header p{
+    text-transform:uppercase;
+    font-size:11px;
+}
+header img{ padding: 0 0 10px;}
+
+
+/* -------------- navigavtion------------- */
+
+nav {
+    font-size: 16px;
+    background: #564B47;
+    color:#fff;
+}
+
+nav ul { 
+    list-style-type: none; 
+    margin:0;
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    display: inline-block;
+    margin:0;
+    color: #fff;
+    border-right:1px solid #97827F;
+    padding: 10px 50px;
+    text-decoration: none;
+}
+nav a:visited {color:#fff;}
+
+nav a:hover {
+    color: #ccc;
+}
+
+/* ----------------- content--------------------- */
+section#content {
+    margin: 0 250px 0 0;
+}
+
+article {
+    float: left;
+    background-color: #fff;
+    min-height:600px;
+    padding:20px;
+}
+p, pre{
+    padding:  0 0 20px;
+    line-height:1.5em;
+}
+
+
+/* -------------- side infos ------------- */
+
+aside {
+    padding:20px;
+    float:right;
+    width: 250px;
+}
+aside a{color:#FFF;}
+
+/* -----------footer--------------------------- */
+footer {
+    padding: 20px;
+    clear:both;
+    background-color: #564B47;
+    color:#fff;
+    text-align: center;
+}
