@@ -34,9 +34,9 @@ class VeranstaltungHTML {
                 <td>{$veranstaltung[$i]->getNameva()}</td>
                 <td>{$veranstaltung[$i]->getDatum()}</td>
                 <td>{$veranstaltung[$i]->getUhrzeit()}</td>
-                <td>{$veranstaltung[$i]->getOrtId()}</td>
+                <td>{$veranstaltung[$i]->getOrt()->getNameort()}</td>
                 <td>{$veranstaltung[$i]->getBeschreibung()}</td>
-                <td>{$veranstaltung[$i]->getGenreId()}</td>
+                <td>{$veranstaltung[$i]->getGenre()->getTyp()}</td>
                 <td>{$veranstaltung[$i]->getPreis()}</td>
             </tr>";
         }

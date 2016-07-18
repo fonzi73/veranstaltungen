@@ -28,7 +28,7 @@ $sent = isset($_POST['sent']) ? $_POST['sent'] : '';
 $suchstring = isset($_POST['suchstring']) ? $_POST['suchstring'] : '';
 if ($sent && $suchstring) {
     echo "<h2>gefundene Veranstaltungen</h2>";
-    $anzeige = 'suchen';
+    $anzeige = 'suche';
 }
 // Eingabeformular
 $insertsent = isset($_POST['insertsent']) ? $_POST['insertsent'] : '';

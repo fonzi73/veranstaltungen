@@ -16,16 +16,20 @@ class Veranstaltung {
     private $id;
     private $nameva;
     private $ortId;
+    private $ort; // Ort Objket...
     private $datum;
     private $uhrzeit;
     private $beschreibung;
     private $preis;
     private $genreId;
+    private $genre; // Genre Objekt
 
 
     //Konstruktor
     public function __construct($nameva, $ortId, $datum, $uhrzeit, $beschreibung, $genreId, $preis,  $id = NULL) {
-        $this->id = $id;
+        if (!is_null($id)) {
+            $this->id = $id;
+        }
         $this->nameva = $nameva;
         $this->ortId = $ortId;
         $this->datum = $datum;
@@ -46,7 +50,11 @@ class Veranstaltung {
     public function getOrtId() {
         return $this->ortId;
     }
-
+    
+    public function getOrt() {
+        return $this->ort;
+    }
+    
     public function getDatum() {
         return $this->datum;
     }
@@ -66,17 +74,35 @@ class Veranstaltung {
     public function getGenreId() {
         return $this->genreId;
     }
+    
+    public function getGenre() {
+        return $this->genre;
+    }
 
+        
+    public function setOrt($ort) {
+        $this->ort = $ort;
+    }
+
+    public function setGenre($genre) {
+        $this->genre = $genre;
+    }
+
+        
     public static function getAll() {
         $db = DbConnect::getConnection();
         $stmt = $db->prepare("SELECT * FROM veranstaltung");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $veranstaltung = [];
+        $i = 0;
         foreach ($rows as $row) {
-            $veranstaltung[] = new Veranstaltung($row['nameva'], $row['ort_id'],
+            $veranstaltung[$i] = new Veranstaltung($row['nameva'], $row['ort_id'],
                     $row['datum'], $row['uhrzeit'], $row['beschreibung'], 
                     $row['genre_id'], $row['preis']);
+            $veranstaltung[$i]->setOrt(Ort::getOrtById($row['ort_id']));
+            $veranstaltung[$i]->setGenre(Genre::getGenreById($row['genre_id']));
+            $i++;
         }
         return $veranstaltung;
     }
@@ -95,5 +121,26 @@ class Veranstaltung {
         $stmt->bindValue(7, $va->getPreis(), PDO::PARAM_STR);
 
         $stmt->execute();
+    }
+    
+    public static function getByLikeness($suchstring) {
+        $db = DbConnect::getConnection();
+// $suchstring enthält den zu suchenden Teilstring
+// sql statement mit prepared statements
+        $stmt = $db->prepare("SELECT * FROM veranstaltung WHERE nameva LIKE ? "
+                . " or datum LIKE ?");
+        $stmt->bindValue(1, "%$suchstring%", PDO::PARAM_STR);
+        $stmt->bindValue(2, "%$suchstring%", PDO::PARAM_STR);
+        
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $veranstaltung = [];
+        foreach ($rows as $row) {
+            $veranstaltung[] = new Veranstaltung($row['nameva'], $row['ort_id'], 
+                    $row['datum'], $row['uhrzeit'], $row['beschreibung'], 
+                    $row['genre_id'], $row['preis']);
+        }
+        return $veranstaltung;
     }
 }

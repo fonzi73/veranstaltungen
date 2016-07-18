@@ -1,7 +1,8 @@
 </article>
             </section>
             <aside>
-                <h2>Seiten Menü</h2>
+                <h3>Veranstaltungen Suchen</h3>
+                <br>
                 <form action="index.php" method="POST">
                     <table>
                         <tr>

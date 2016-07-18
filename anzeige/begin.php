@@ -2,10 +2,22 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Veranstaltungskalender</title>
-        <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+        <title>Veranstaltungskalender</title>
+        <script src="js/jquery-3.0.0.min.js"></script>
+        
+        <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        
 
+        <!--hier werden die Scripte geladen--> 
+        <!--<script>
+            $(document).ready(
+                    function () {
+                        
+                    }
+            
+</script>-->
+        
     </head>
 
     <body>
