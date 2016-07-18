@@ -23,6 +23,29 @@ switch ($navigation) {
     default:
         break;
 }
+//wurde das suchformular ausgefüllt?
+$sent = isset($_POST['sent']) ? $_POST['sent'] : '';
+$suchstring = isset($_POST['suchstring']) ? $_POST['suchstring'] : '';
+if ($sent && $suchstring) {
+    echo "<h2>gefundene Veranstaltungen</h2>";
+    $anzeige = 'suchen';
+}
+// Eingabeformular
+$insertsent = isset($_POST['insertsent']) ? $_POST['insertsent'] : '';
+$vaName = isset($_POST['vaName']) ? $_POST['vaName'] : '';
+$vaOrt = isset($_POST['vaOrt']) ? $_POST['vaOrt'] : '';
+$vaDatum = isset($_POST['vaDatum']) ? $_POST['vaDatum'] : '';
+$vaUhrzeit = isset($_POST['vaUhrzeit']) ? $_POST['vaUhrzeit'] : '';
+$vaBeschreibung = isset($_POST['vaBeschreibung']) ? $_POST['vaBeschreibung'] : '';
+$vaGenre = isset($_POST['vaGenre']) ? $_POST['vaGenre'] : '';
+$vaPreis = isset($_POST['vaPreis']) ? $_POST['vaPreis'] : '';
+
+if ($insertsent && $vaName && $vaBeschreibung) {
+    echo '<h2>VA eintragen</h2>';
+    Veranstaltung::insert(new Veranstaltung($vaName, $vaOrt, $vaDatum, 
+            $vaUhrzeit, $vaBeschreibung, $vaGenre, $vaPreis));
+    $anzeige = 'veranstaltungAnzeigen';
+}
 
 include './anzeige/' . $anzeige . '.php';
 include './anzeige/end.php';

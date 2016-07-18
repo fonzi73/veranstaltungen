@@ -81,4 +81,19 @@ class Veranstaltung {
         return $veranstaltung;
     }
 
+    public static function insert(Veranstaltung $va) {
+        $db = DbConnect::getConnection();
+// sql statement mit prepared statements
+        $stmt = $db->prepare("INSERT INTO veranstaltung VALUES(NULL, ?, ?, ?, ?, ?, ?, ?)");
+
+        $stmt->bindValue(1, $va->getNameva(), PDO::PARAM_STR);
+        $stmt->bindValue(2, $va->getOrtId(), PDO::PARAM_INT);
+        $stmt->bindValue(3, $va->getDatum(), PDO::PARAM_STR);
+        $stmt->bindValue(4, $va->getUhrzeit(), PDO::PARAM_STR);
+        $stmt->bindValue(5, $va->getBeschreibung(), PDO::PARAM_STR);
+        $stmt->bindValue(6, $va->getGenreId(), PDO::PARAM_INT);
+        $stmt->bindValue(7, $va->getPreis(), PDO::PARAM_STR);
+
+        $stmt->execute();
+    }
 }
