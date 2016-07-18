@@ -1,47 +1,30 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Veranstaltungskalender</title>
-        <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+<?php
 
-    </head>
+include './config.php';
+spl_autoload_register(function($class) {
+    include './class/' . $class . '.php';
+});
+include './anzeige/begin.php';
 
-    <body>
-        <div id="container">
-            <header>
-                <div id="text">Veranstaltungskalender für Berlin</div>
-            </header>
-            <nav>
-                <ul>
-                    <li><a href="#">Veranstaltung</a></li>
-                    <li><a href="#">Veranstaltung hinzufügen</a></li>
-                </ul>
-            </nav>
-            <section id="content">
-                <article>
-                    <h1>Inhalt</h1>
-                </article>
-            </section>
-            <aside>
-                <h2>Seiten Menü</h2>
-                <form action="index.php" method="POST">
-                    <table>
-                        <tr>
-                            <td><input type="text" id="autocomplete" class="ui-widget" name="suchstring" value=""/></td>
-                        </tr>
-                        <tr>
-                            <td><input type="submit" value="suchen" /><input type="hidden" name="sent" value="1" /></td>
-                        </tr>
+$navigation = isset($_GET['navi']) ? $_GET['navi'] : '0';
+$anzeige = 'default';
+switch ($navigation) {
+    case "0":
+        echo "<h2>Willkommen auf dem Veranstaltungskalender</h2>";
+        break;
+    case "1":
+        echo "<h2>Hier eine Auflistung von Veranstaltungen</h2>";
+        $anzeige = 'veranstaltungAnzeigen';
+        break;
+    case "2":
+        echo "<h2>Tragen Sie Ihre Veranstaltung hier ein</h2>";
+        $anzeige = 'veranstaltungEintragen';
+        break;
+    default:
+        break;
+}
 
-                    </table>
-
-                </form>
-            </aside>
-            <footer>		
-                <h2>Hier könnte Ihre Werbung stehen</h2>
-            </footer>
-        </div>
-    </body>
-</html>
+include './anzeige/' . $anzeige . '.php';
+include './anzeige/end.php';
+?>
+                

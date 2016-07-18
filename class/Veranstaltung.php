@@ -24,7 +24,7 @@ class Veranstaltung {
 
 
     //Konstruktor
-    public function __construct($nameva, $ortId, $datum, $uhrzeit, $beschreibung, $preis, $genreId, $id = NULL) {
+    public function __construct($nameva, $ortId, $datum, $uhrzeit, $beschreibung, $genreId, $preis,  $id = NULL) {
         $this->id = $id;
         $this->nameva = $nameva;
         $this->ortId = $ortId;
@@ -74,9 +74,11 @@ class Veranstaltung {
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $veranstaltung = [];
         foreach ($rows as $row) {
-            $veranstaltung[] = new Veranstaltung($row['nameva'], $row['ort_id'], $row['datum'], $row['uhrzeit'], $row['beschreibung'], $row['genre_id'], $row['preis']);
+            $veranstaltung[] = new Veranstaltung($row['nameva'], $row['ort_id'],
+                    $row['datum'], $row['uhrzeit'], $row['beschreibung'], 
+                    $row['genre_id'], $row['preis']);
         }
-        return $kneipen;
+        return $veranstaltung;
     }
 
 }

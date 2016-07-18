@@ -115,6 +115,9 @@ article {
     background-color: #fff;
     min-height:600px;
     padding:20px;
+    max-width: 1000px;
+    min-width:950px;
+    
 }
 p, pre{
     padding:  0 0 20px;
