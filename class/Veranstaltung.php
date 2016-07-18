@@ -32,7 +32,7 @@ class Veranstaltung {
         }
         $this->nameva = $nameva;
         $this->ortId = $ortId;
-        $this->datum = $datum;
+        $this->datum = implode('-',  array_reverse(explode('/', date($datum))));
         $this->uhrzeit = $uhrzeit;
         $this->beschreibung = $beschreibung;
         $this->preis = $preis;
@@ -56,7 +56,8 @@ class Veranstaltung {
     }
     
     public function getDatum() {
-        return $this->datum;
+        return $this->datum; 
+        
     }
 
     public function getUhrzeit() {

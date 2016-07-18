@@ -21,7 +21,7 @@
             <tr>
                 <td>Wann findet die VA statt:</td>
                 <td>
-                    <input type="text" name="vaDatum" value="" />
+                    <input id="datepicker" type="text" name="vaDatum" value="" />
                 </td>
             </tr>
             <tr>
