@@ -18,7 +18,7 @@
                 </form>
             </aside>
             <footer>		
-                <h2>Hier könnte Ihre Werbung stehen</h2>
+                <p><a href="index.php?navi=3" title="Impressum">Impressum</a></p>
             </footer>
         </div>
     </body>

@@ -46,4 +46,4 @@
             </nav>
             <section id="content">
                 <article>
-                    <h1>Inhalt</h1>
+                    <!--<h1>Inhalt</h1>-->

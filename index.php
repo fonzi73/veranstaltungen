@@ -11,6 +11,7 @@ $anzeige = 'default';
 switch ($navigation) {
     case "0":
         echo "<h2>Willkommen auf dem Veranstaltungskalender</h2>";
+        $anzeige =  'startSeite';
         break;
     case "1":
         echo "<h2>Hier eine Auflistung von Veranstaltungen</h2>";
@@ -19,6 +20,10 @@ switch ($navigation) {
     case "2":
         echo "<h2>Tragen Sie Ihre Veranstaltung hier ein</h2>";
         $anzeige = 'veranstaltungEintragen';
+        break;
+    case "3":
+        echo "<h2>Impressum</h2>";
+        $anzeige = 'impressum';
         break;
     default:
         break;
