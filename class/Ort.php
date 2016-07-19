@@ -12,10 +12,10 @@
  * @author fonzi
  */
 class Ort {
-    
+
     private $id;
     private $nameort;
-    
+
     public function __construct($nameort, $id = NULL) {
         if (!is_null($id)) {
             $this->id = $id;
@@ -39,7 +39,6 @@ class Ort {
         $this->nameort = $nameort;
     }
 
-
     public static function getAll() {
         $db = DbConnect::getConnection();
         $stmt = $db->prepare("SELECT * FROM ort");
@@ -47,11 +46,11 @@ class Ort {
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $ort = [];
         foreach ($rows as $row) {
-            $ort[] = new Ort($row['nameort']);
+            $ort[] = new Ort($row['nameort'], $row['id']);
         }
         return $ort;
     }
-    
+
     public static function getOrtById($id) {
         $db = DbConnect::getConnection();
         $stmt = $db->prepare("SELECT * FROM ort WHERE id=?");
@@ -64,5 +63,20 @@ class Ort {
         }
         return $ort[0];
     }
-    
+
+    public static function getClubByName($term) {
+        $db = DbConnect::getConnection();
+    // $suchstring enthält den zu suchenden Teilstring
+    // sql statement mit prepared statements
+        $stmt = $db->prepare("SELECT * FROM ort WHERE nameort LIKE ?");
+        $stmt->bindValue(1, "%$term%", PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $names = []; // Objekt von ORT
+        foreach ($rows as $row) {
+            $names[] = $row->nameort;
+        }
+        return $names;
+    }
+
 }

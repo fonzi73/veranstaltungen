@@ -23,7 +23,11 @@
                             dateFormat: 'dd.mm.yy'
                         });
                         $("table.tableSorter").tableSort(); // Animated
-                    });
+
+                        $("#autocomplete").autocomplete({
+                            source: "ajax.php", minLength: 2
+
+                        });});
 
         </script>
 
