@@ -44,7 +44,9 @@ img{border:none;}
     max-width: 1200px;
     min-width:960px;
     margin:10px  auto;
-    background-color: #f67;
+    /* background-color: #f67; */
+    border-style: solid;
+    border-width: 0.2px;
 }
 
 /* ----------header for logo-------------- */
@@ -115,8 +117,8 @@ article {
     background-color: #fff;
     min-height:600px;
     padding:20px;
-    max-width: 1000px;
-    min-width:950px;
+    max-width: 950px;
+    min-width:930px;
     
 }
 p, pre{
@@ -132,7 +134,7 @@ aside {
     float:right;
     width: 250px;
 }
-aside a{color:#FFF;}
+aside a{color:#CCC;}
 
 /* -----------footer--------------------------- */
 footer {

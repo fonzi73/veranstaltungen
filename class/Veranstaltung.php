@@ -32,7 +32,7 @@ class Veranstaltung {
         }
         $this->nameva = $nameva;
         $this->ortId = $ortId;
-        $this->datum = implode('-',  array_reverse(explode('/', date($datum))));
+        $this->datum = implode('-',  array_reverse(explode('.', date($datum))));
         $this->uhrzeit = $uhrzeit;
         $this->beschreibung = $beschreibung;
         $this->preis = $preis;
@@ -55,8 +55,13 @@ class Veranstaltung {
         return $this->ort;
     }
     
-    public function getDatum() {
-        return $this->datum; 
+    public function getMySQLDatum(){
+        return $this->datum;
+    }
+
+        public function getDatum() {
+        $datum = implode('.', array_reverse(explode('-', $this->datum)));
+        return $datum;
         
     }
 
@@ -92,7 +97,7 @@ class Veranstaltung {
         
     public static function getAll() {
         $db = DbConnect::getConnection();
-        $stmt = $db->prepare("SELECT * FROM veranstaltung");
+        $stmt = $db->prepare("SELECT * FROM veranstaltung ORDER BY datum, uhrzeit");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $veranstaltung = [];
@@ -115,7 +120,7 @@ class Veranstaltung {
 
         $stmt->bindValue(1, $va->getNameva(), PDO::PARAM_STR);
         $stmt->bindValue(2, $va->getOrtId(), PDO::PARAM_INT);
-        $stmt->bindValue(3, $va->getDatum(), PDO::PARAM_STR);
+        $stmt->bindValue(3, $va->getMySQLDatum(), PDO::PARAM_STR);
         $stmt->bindValue(4, $va->getUhrzeit(), PDO::PARAM_STR);
         $stmt->bindValue(5, $va->getBeschreibung(), PDO::PARAM_STR);
         $stmt->bindValue(6, $va->getGenreId(), PDO::PARAM_INT);
@@ -129,18 +134,21 @@ class Veranstaltung {
 // $suchstring enthält den zu suchenden Teilstring
 // sql statement mit prepared statements
         $stmt = $db->prepare("SELECT * FROM veranstaltung WHERE nameva LIKE ? "
-                . " or datum LIKE ?");
+                . " or ort_id LIKE ? ORDER BY datum ASC");
         $stmt->bindValue(1, "%$suchstring%", PDO::PARAM_STR);
         $stmt->bindValue(2, "%$suchstring%", PDO::PARAM_STR);
-        
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $veranstaltung = [];
+        $i = 0;
         foreach ($rows as $row) {
-            $veranstaltung[] = new Veranstaltung($row['nameva'], $row['ort_id'], 
+            $veranstaltung[$i] = new Veranstaltung($row['nameva'], $row['ort_id'], 
                     $row['datum'], $row['uhrzeit'], $row['beschreibung'], 
                     $row['genre_id'], $row['preis']);
+            $veranstaltung[$i]->setOrt(Ort::getOrtById($row['ort_id']));
+            $veranstaltung[$i]->setGenre(Genre::getGenreById($row['genre_id']));
+            $i++;
         }
         return $veranstaltung;
     }

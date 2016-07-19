@@ -25,7 +25,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Welche Uhrzeit beginnt die VA:</td>
+                <td>Welche Uhrzeit beginnt die VA in HH:mm :</td>
                 <td>
                     <input type="text" name="vaUhrzeit" value="" />
                 </td>

@@ -3,7 +3,7 @@
 $rows = Veranstaltung::getAll();
 
 ?>
-<table border="0" cellspacing="20" cellpadding="5">
+<table border="0" cellspacing="15" cellpadding="5" class="tableSorter" >
     <?php
     echo VeranstaltungHTML::buildTableContent($rows);
     ?>
