@@ -115,7 +115,7 @@ section#content {
 article {
     float: left;
     background-color: #fff;
-    min-height:600px;
+    min-height:450px;
     padding:20px;
     max-width: 950px;
     min-width:930px;
@@ -139,7 +139,9 @@ aside a{color:#CCC;}
 
 /* -----------footer--------------------------- */
 footer {
-    padding: 20px;
+    position: relative;
+    height: 40px;
+    padding: 8px;
     clear:both;
     background-color: #564B47;
     color:#fff;
