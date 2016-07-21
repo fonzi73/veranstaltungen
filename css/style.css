@@ -23,9 +23,11 @@ body {
 pre, code {
     font-size: 1.3em;
 }
-a {color: #fff;}
+a {color: #fff;
+text-decoration : none;}
 a:visited {color:#fff;}
-a:hover {color: #ccc;}
+a:hover {color: #ccc;
+         text-decoration : none;}
 a:active { color:#000000;}
 
 h1, h2 {
@@ -66,7 +68,7 @@ header {
     font-size: 1.5em;
     padding: 10px;
     padding-right: 30px;
-    
+
 }
 
 header p{
@@ -119,12 +121,12 @@ article {
     padding:20px;
     max-width: 950px;
     min-width:930px;
-    
+
 }
 p, pre{
     padding:  0 0 20px;
     line-height:1.5em;
-  
+
 }
 
 
@@ -146,4 +148,16 @@ footer {
     background-color: #564B47;
     color:#fff;
     text-align: center;
+}
+
+/* -------------------Tabellen---------------- */
+th {
+    padding: 5px;
+    background: #564B47;
+    color: #fff;
+}
+
+td {
+    background: #ccc;
+    padding: 10px;
 }

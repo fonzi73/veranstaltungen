@@ -9,7 +9,7 @@ foreach (Ort::getAll() as $value) {
 }
 
 ?>
-<table border="0" cellspacing="10" cellpadding="5" class="tableSorter">
+<table border="0" cellspacing="0" cellpadding="5" class="tableSorter">
     <?php
     echo VeranstaltungHTML::buildTableContent($rows);
     ?>

@@ -17,13 +17,13 @@ class VeranstaltungHTML {
         $html = "
         <thead>
         <tr>
-            <th>Veranstaltung</th>
-            <th>Datum</th>
-            <th>Uhrzeit</th>
-            <th>Ort</th>
-            <th>Beschreibung</th>
-            <th>Genre</th>
-            <th>Preis</th>
+            <th><a>Veranstaltung</a></th>
+            <th><a>Datum</a></th>
+            <th><a>Uhrzeit</a></th>
+            <th><a>Ort</a></th>
+            <th><a>Beschreibung</a></th>
+            <th><a>Genre</a></th>
+            <th><a>Preis</a></th>
         </tr>
     </thead>
     <tbody>";
