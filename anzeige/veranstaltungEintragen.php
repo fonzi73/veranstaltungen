@@ -1,5 +1,5 @@
 <form action="index.php" method="POST">
-    <table border="0" cellspacing="0" cellpadding="5" id="tabelleEingabe">
+    <table border="0" cellpadding="5" id="tabelleEingabe">
         <thead>
             <tr>
                 <th colspan="2">Tragen Sie Details zu Ihrer Veranstaltung hier ein</th>

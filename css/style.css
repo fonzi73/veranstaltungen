@@ -151,6 +151,11 @@ footer {
 }
 
 /* -------------------Tabellen---------------- */
+
+table {
+    border-collapse: collapse; /* nimmt die leeren Felder zwischen den Tabellen*/
+}
+
 th {
     padding: 5px;
     background: #564B47;
