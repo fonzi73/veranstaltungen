@@ -30,7 +30,7 @@ class VeranstaltungHTML {
 
         for ($i = 0; $i < count($veranstaltung); $i++) {
             $html .= "
-            <tr>           
+            <tr class=\"row_".($i %2)."\">   
                 <td>{$veranstaltung[$i]->getNameva()}</td>
                 <td>{$veranstaltung[$i]->getDatum()}</td>
                 <td>{$veranstaltung[$i]->getUhrzeit()}</td>
@@ -43,7 +43,7 @@ class VeranstaltungHTML {
 
         $html .="</tbody>";
         return $html;
-        ;
+        
     }
 
 }

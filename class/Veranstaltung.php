@@ -24,6 +24,7 @@ class Veranstaltung {
     private $preis;
     private $genreId;
     private $genre; // Genre Objekt
+    private $css;
 
     //Konstruktor
 
@@ -92,6 +93,8 @@ class Veranstaltung {
     public function setGenre($genre) {
         $this->genre = $genre;
     }
+    
+    
 
     public static function getAll() {
         $db = DbConnect::getConnection();
