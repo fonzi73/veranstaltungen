@@ -21,7 +21,7 @@ class VeranstaltungHTML {
             <th><a>Datum</a></th>
             <th><a>Uhrzeit</a></th>
             <th><a>Ort</a></th>
-            <th><a>Beschreibung</a></th>
+            <th width=\"20%\"><a>Beschreibung</a></th>
             <th><a>Genre</a></th>
             <th><a>Preis</a></th>
         </tr>
@@ -35,7 +35,7 @@ class VeranstaltungHTML {
                 <td>{$veranstaltung[$i]->getDatum()}</td>
                 <td>{$veranstaltung[$i]->getUhrzeit()}</td>
                 <td>{$veranstaltung[$i]->getOrt()->getNameort()}</td>
-                <td>{$veranstaltung[$i]->getBeschreibung()}</td>
+                <td width=\"35%\">{$veranstaltung[$i]->getBeschreibung()}</td>
                 <td>{$veranstaltung[$i]->getGenre()->getTyp()}</td>
                 <td>{$veranstaltung[$i]->getPreis()}</td>
             </tr>";
